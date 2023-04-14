@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "6+e5jHy1ZRdLOQg4cSAJfoDOZTQ+f9Qny6IeF56g09rqi05gMnA+f2FnKMAIyAy5v49zxDjGD0SR8D4oMjZckQ==",
+  "success": true,
+  "projectFilePath": "E:\\Linkindin-auto\\Linkedin-jobs\\Linkdin_Usjobs\\Linkdin_Usjobs.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Bhuvan\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Bhuvan\\.nuget\\packages\\selenium.support\\4.8.2\\selenium.support.4.8.2.nupkg.sha512",
+    "C:\\Users\\Bhuvan\\.nuget\\packages\\selenium.webdriver\\4.8.2\\selenium.webdriver.4.8.2.nupkg.sha512"
+  ],
+  "logs": []
+}
