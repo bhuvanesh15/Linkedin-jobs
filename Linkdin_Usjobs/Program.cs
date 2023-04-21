@@ -86,79 +86,102 @@ namespace TmallPOC
                                     Thread.Sleep(2000);
                                     for (int i = 0; i < JobsLinkBox.Count(); i++)
                                     {
-                                        Console.WriteLine("+================Running for jOB===================="+i );
-                                        //Console.WriteLine(JobsLinkBox[i].Text);
-                                        JobsLinkBox[i].Click();
-                                        Thread.Sleep(3000);
                                         try
                                         {
-                                            IWebElement jobchecklink = driver.FindElement(By.XPath("/html/body/div[5]/div[3]/div[4]/div/div/main/div/div/div/div/div/div/div/div/div/div/div/div/div/div/button"));
-                                            jobchecklink.Click();
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            Console.WriteLine("Job Skipped" + ex.Message);
-                                            continue;
-
-                                        }
-                                        bool JobsFrom = true;
-                                        int JF = 1;
-                                        try
-                                        {
-                                            while (JobsFrom == true)
+                                            Console.WriteLine("+================Running for jOB====================" + i);
+                                            //Console.WriteLine(JobsLinkBox[i].Text);
+                                            JobsLinkBox[i].Click();
+                                            Thread.Sleep(3000);
+                                            try
                                             {
-                                                JF = JF + 1;
-                                                if (JF == 2)
-                                                {
-                                                    Thread.Sleep(2000);
-                                                    driver.FindElement(By.XPath("/html/body/div[3]/div/div/div[2]/div/div[2]//footer/div[2]/button")).Click();
-                                                }
-                                                else
-                                                {
-                                                    try
-                                                    {
+                                                IWebElement jobchecklink = driver.FindElement(By.XPath("/html/body/div[5]/div[3]/div[4]/div/div/main/div/div/div/div/div/div/div/div/div/div/div/div/div/div/button"));
+                                                jobchecklink.Click();
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                Console.WriteLine("Job Skipped" + ex.Message);
+                                                continue;
 
-                                                        Console.WriteLine("+===============Robot applying job====================");
-                                                        IWebElement ab = driver.FindElement(By.XPath("/html/body/div[3]/div/div/div/div/div//footer/div/button[2]"));
+                                            }
+                                            bool JobsFrom = true;
+                                            int JF = 1;
+                                            try
+                                            {
+                                                while (JobsFrom == true)
+                                                {
+                                                    JF = JF + 1;
+                                                    if (JF == 2)
+                                                    {
                                                         Thread.Sleep(2000);
-                                                        ab.Click();
-                                                        IWebElement divElement = driver.FindElement(By.XPath("/html/body/div[3]/div/div/div[2]"));
-                                                        if (divElement.Text.Contains("Please enter a valid answer")) //enhance algorithm
-                                                        {
-                                                            Thread.Sleep(2000);
-                                                            driver.FindElement(By.XPath("/html/body/div[3]/div/div/button")).Click();
-                                                            Thread.Sleep(2000);
-                                                            driver.FindElement(By.XPath("/html/body/div[3]/div[2]/div/div[3]/button[1]")).Click();
-                                                            Console.WriteLine("+================jOB SKIPPED====================");
-                                                            break;
-                                                        }
-
+                                                        driver.FindElement(By.XPath("/html/body/div[3]/div/div/div[2]/div/div[2]//footer/div[2]/button")).Click();
                                                     }
-                                                    catch (Exception ex)
+                                                    else
                                                     {
-                                                       // IWebElement AppSent = driver.FindElement(By.XPath("/html/body/div[3]/div/div/div[1]/h2"));
-                                                        //Thread.Sleep(2000);
-                                                        //if (AppSent.Text.Contains("Application sent"))
+                                                        try
                                                         {
-                                                            Thread.Sleep(3000);
-                                                            Console.WriteLine("+================job suceess====================" + ex.Message);                                                            
-                                                            IWebElement sucessClick = driver.FindElement(By.XPath("/html/body/div[3]/div/div/div[3]/button/span"));
-                                                            Thread.Sleep(1000);
-                                                            sucessClick.Click();
-                                                            break;
+
+                                                            Console.WriteLine("+===============Robot applying job====================");
+                                                            IWebElement ab = driver.FindElement(By.XPath("/html/body/div[3]/div/div/div/div/div//footer/div/button[2]"));
+                                                            Thread.Sleep(2000);
+                                                            ab.Click();
+                                                            IWebElement divElement = driver.FindElement(By.XPath("/html/body/div[3]/div/div/div[2]"));
+                                                            if (divElement.Text.Contains("Please enter a valid answer")) //enhance algorithm
+                                                            {
+                                                                Thread.Sleep(2000);
+                                                                driver.FindElement(By.XPath("/html/body/div[3]/div/div/button")).Click();
+                                                                Thread.Sleep(2000);
+                                                                driver.FindElement(By.XPath("/html/body/div[3]/div[2]/div/div[3]/button[1]")).Click();
+                                                                Console.WriteLine("+================jOB SKIPPED====================");
+                                                                break;
+                                                            }
+
+                                                        }
+                                                        catch (Exception ex)
+                                                        {
+                                                            // IWebElement AppSent = driver.FindElement(By.XPath("/html/body/div[3]/div/div/div[1]/h2"));
+                                                            //Thread.Sleep(2000);
+                                                            //if (AppSent.Text.Contains("Application sent"))
+                                                            {
+                                                                Thread.Sleep(3000);
+                                                                Console.WriteLine("+================job suceess====================" + ex.Message);
+                                                                IWebElement sucessClick = driver.FindElement(By.XPath("/html/body/div[3]/div/div/div[3]/button/span"));
+                                                                Thread.Sleep(1000);
+                                                                sucessClick.Click();
+                                                                break;
+                                                            }
+
                                                         }
 
                                                     }
-
                                                 }
                                             }
+                                            catch (Exception ex)
+                                            {
+                                                Console.WriteLine("+================Errr at app locgic====================" + ex.Message);
+                                                Thread.Sleep(2000);
+                                                               
+                                            }
+
+
                                         }
                                         catch (Exception ex)
                                         {
-                                            Console.WriteLine("+================Errr at app locgic====================" + ex.Message);
+                                            try
+                                            {
+                                                Console.WriteLine("+================Errr at page locgic====================" + ex.Message);
+                                                driver.FindElement(By.XPath("/html/body/div[3]/div/div/button")).Click();
+                                                Thread.Sleep(2000);
+                                                driver.FindElement(By.XPath("/html/body/div[3]/div[2]/div/div[3]/button[1]")).Click();
+                                                Console.WriteLine("+================jOB SKIPPED====================");
+                                            }
+                                            catch (Exception ex1 ) // added new
+                                            {
 
+                                                Console.WriteLine("+================Retrying SKIPPED====================");
+                                            }
+
+                                            
                                         }
-                                        
 
 
                                          //alwasy after sucess job applied
@@ -173,11 +196,11 @@ namespace TmallPOC
                                         // Console.WriteLine("Value of Product id :" + attrValue + "\t" + "product price" + ProdPrice + "\t" + ProdStats + "\t" + ProdTitle);
                                         // write.WriteLine(attrValue + "," + ProdPrice + "," + ProdTitle + "," + ProdStats);
                                         //if (i ==2) /html/body/div[3]/div/div/button
-                                        {
+                                        
                                            // driver.FindElement(By.XPath("/html/body/div[3]/div/div/button")).Click();
                                             //driver.FindElement(By.XPath("/html/body/div[3]/div[2]/div/div[3]/button[1]")).Click();
                                          //   js.ExecuteScript("window.document.dispatchEvent(new KeyboardEvent('keydown',{'key':'Escape'}));");
-                                        }
+                                        
                                     }
                                     Console.WriteLine("+================Boom===================" );
                                     driver.Url = "https://www.linkedin.com/m/logout";
